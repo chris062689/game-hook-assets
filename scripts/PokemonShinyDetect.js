@@ -1,24 +1,19 @@
 // Pokemon Nuzlocke Script
 const ScriptState = require(`${global.__lib_core}/ScriptState.js`);
-const logger = require('winston');
+const logger = require(`${global.__lib}/logger.js`);
 
 class Script extends ScriptState {
   constructor() {
     super();
+    
+    this.compatibleMappers = ['PokemonRedBlue.gb'];
 
-    this.name = 'shinydetect';
     this.ran = false;
 
     this.data.encounters = [];
     this.data.deadPokemon = [];
   }
   run(gameState) {
-    // Check the GameState object to see if it is compatible.
-    if (gameState.gameName != 'Pokemon Red Blue (GBC)') {
-      logger.warn(`[${this.name}] ${this.name} is not compatible with the loaded game.`);
-      return { notification: `${this.name} is not compatible with the loaded game.` };
-    }
-
     var shiny = null;
     var notification = null;
 

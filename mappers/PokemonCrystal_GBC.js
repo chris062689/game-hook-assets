@@ -31,7 +31,7 @@ class Mapper extends GameState {
   constructor() {
     super();
 
-    this.gameName = 'Pokemon Crystal (GBC)';
+    this.gameName = 'PokemonCrystal.gb';
     /*
             this.map = {
                 loadedMap: new Ref(this, 0xdcb6, 1, maps)

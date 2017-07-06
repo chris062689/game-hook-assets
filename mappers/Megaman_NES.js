@@ -10,7 +10,7 @@ class Mapper extends GameState {
   constructor() {
     super();
 
-    this.gameName = 'Megaman (NES)';
+    this.gameName = 'Megman1.nes';
 
     this.stage = {
       map: new Ref(this, 0x31, 1, stages),

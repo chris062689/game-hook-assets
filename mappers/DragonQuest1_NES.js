@@ -10,7 +10,7 @@ class Mapper extends GameState {
   constructor() {
     super();
 
-    this.gameName = 'Dragon Quest 1 (NES)';
+    this.gameName = 'DragonQuest1.nes';
 
     this.map = {
       horizontalOffset: new Int(this, 0x11),

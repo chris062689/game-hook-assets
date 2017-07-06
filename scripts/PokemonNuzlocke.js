@@ -1,14 +1,14 @@
 // Pokemon Nuzlocke Script
 const ScriptState = require(`${global.__lib_core}/ScriptState.js`);
-const logger = require('winston');
+const logger = require(`${global.__lib}/logger.js`);
 const moment = require('moment');
 
 class Script extends ScriptState {
   constructor() {
     super();
 
-    this.name = 'nuzlocke';
-    this.filename = 'nuzlocke.json';
+    this.compatibleMappers = ['PokemonRedBlue.gb'];
+    this.persistData = true;
 
     this.inWildCombat = false;
     this.catchable = null;
@@ -18,16 +18,6 @@ class Script extends ScriptState {
     this.data.deadPokemon = [];
   }
   run(gameState) {
-    // Check the GameState object to see if it is compatible.
-    if (gameState.gameName != 'Pokemon Red Blue (GBC)') {
-      logger.warn(`[${this.name}] ${this.name} is not compatible with the loaded game.`);
-      return { notification: `${this.name} is not compatible with the loaded game.` };
-    }
-
-    if (this.loadedSavefile == false) {
-      this.loadData();
-    }
-
     // Rule #1: Any Pokémon that faints is considered dead, and must be released.
     try {
       for (var i = 1; i <= gameState.player.partyCount.value; i++) {

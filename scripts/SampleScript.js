@@ -1,38 +1,33 @@
 // Pokemon Nuzlocke Script
 const ScriptState = require(`${global.__lib_core}/ScriptState.js`);
-const logger = require('winston');
+const logger = require(`${global.__lib}/logger.js`);
 
 class Script extends ScriptState {
   constructor() {
     super();
 
-    // The below must be filled out.
-    this.name = 'MyScript';
-    this.filename = 'sample.json';
+    this.compatibleMappers = ['GameName.system'];
+    this.persistData = false;
   }
   run(gameState) {
-    // Check the GameState object to see if it is compatible.
-    if (gameState.gameName != 'GAME NAME FROM MAPPER') {
-      logger.warn(`[${this.name}] Loaded game is not compatible.`);
-      return false;
+    try {
+      // Do something here.
+      // You can access variables based off the gameState passed in.
+      // Ex: gameState.player.name.value
+      // Ex: gameState.battle.name.setHex(['00']);
+
+      // This will execute every tick.
+
+      // You can save anything stored within this.data using
+      // the saveData function is persistData is set to true.
+      // this.saveData();
+    } catch (ex) {
+      logger.error(ex);
     }
-
-    if (this.loadedSavefile == false) {
-      this.loadData();
-    }
-
-    // Do something here.
-    // You can access variables based off the gameState passed in.
-    // Ex: gameState.player.name.value
-    // Ex: gameState.battle.name.setHex(['00']);
-
-    // This will execute every tick.
-
-    // You can also save anything stored within this.data using
-    this.saveData();
 
     // Return results of the script back to the API.
     return {
+      notification: null,
       result: true
     };
   }
