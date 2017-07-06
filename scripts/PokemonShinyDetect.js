@@ -5,7 +5,8 @@ const logger = require(`${global.__lib}/logger.js`);
 class Script extends ScriptState {
   constructor() {
     super();
-    
+
+    this.name = 'PokemonShinyDetect';
     this.compatibleMappers = ['PokemonRedBlue.gb'];
 
     this.ran = false;

@@ -6,7 +6,8 @@ const moment = require('moment');
 class Script extends ScriptState {
   constructor() {
     super();
-    
+
+    this.name = 'PokemonRandomEncounters';
     this.compatibleMappers = ['PokemonRedBlue.gb'];
   }
   run(gameState) {

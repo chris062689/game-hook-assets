@@ -7,6 +7,7 @@ class Script extends ScriptState {
   constructor() {
     super();
 
+    this.name = 'PokemonNuzlocke';
     this.compatibleMappers = ['PokemonRedBlue.gb'];
     this.persistData = true;
 

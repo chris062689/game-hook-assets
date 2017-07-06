@@ -6,6 +6,7 @@ class Script extends ScriptState {
   constructor() {
     super();
 
+    this.name = 'SampleScript';
     this.compatibleMappers = ['GameName.system'];
     this.persistData = false;
   }
